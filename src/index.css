@@ -12,12 +12,16 @@ body {
 }
 
 .workings{
-    max-width: 500px;
-    margin: auto;
-    /* overflow: auto; */
-    padding: 0 2rem;
-    margin-top: 100px;
+  max-width: 50%;
+  margin: auto;
+  /* overflow: auto; */
+  padding: 0 2rem;
+  margin-top: 100px;
 }
+.disappear{
+  display: none;
+}
+
 .main-header{
   display: flex;
   justify-content: space-between;
@@ -28,13 +32,14 @@ body {
   padding: 2rem; */
 }
 .box{
-  /* width: 500px; */
+  
+   
   height: 30px;
   background-color: rgb(30, 41, 70);
   border-radius: 10px;
   display: flex;
   align-items: center;
-  padding: 8px;
+  padding: 8px; 
 }
 .box > i {
   font-size: 20px;
@@ -46,7 +51,7 @@ body {
   border: none;
   outline: none;
   font-size: 18px;
-  padding-left: 10px;
+  padding-left: 10px; 
   background-color: rgb(30, 41, 70);
 }
 button{
@@ -58,12 +63,13 @@ button{
   border: none;
 }
 .second-box{
-  margin-top: 20px;
-  background-color: rgb(30, 41, 70);
+  
+  margin-top: 20px; 
+  background-color: rgb(30, 41, 70); 
   border-radius: 10px;
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 20px; 
 }
 .first-row{
   display: grid;
@@ -82,24 +88,17 @@ button{
   justify-content: space-between;
 }
 .login-name{
-  line-height: 0px;
+  
   color: blue;
 }
-.user-details{
-  line-height: 0px;
-  padding: 10px;
-}
- .user-bi0{
-  line-height: 0%;
-} 
-.login-name h6{
-  margin-bottom: 20px;
-}
+
 .number-div{
   background-color: rgb(20, 28, 47);
-  padding: 10px;
+  padding: 5px;
+  margin-right: 20px;
+
   border-radius: 10px;
-  margin-top: 20px;
+ 
 }
 .numbers-header{
   display: flex;
@@ -112,12 +111,7 @@ button{
   flex-direction: row;
   justify-content: space-between;
 }
-.repo-number{
-  margin-left: 10px;
-}
-.following-number{
-  margin-right: 30px;
-}
+
 .first-last-flex{
   display: flex;
   justify-content: space-between;
@@ -126,3 +120,18 @@ button{
   display: flex;
   justify-content: space-between;
 }
+.last-div{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.5rem;
+
+
+}
+@media (max-width: 700px){
+  .first-row{
+    display: block;
+  }
+  .last-div{
+    display: block;
+  }
+} 

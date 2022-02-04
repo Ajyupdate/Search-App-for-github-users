@@ -15,7 +15,9 @@ const Workings = () => {
     const [location, setLocation] = useState('location');
     const [twitterUsername, setTwitterUsername] = useState("Twitter")
     const [blog, setBlog] = useState('blog');
-    const [id, setId] = useState('id');
+    const [company, setCompany] = useState('null')
+
+    
     const handleSubmit = (e) =>{
        
         e.preventDefault();
@@ -29,6 +31,7 @@ const Workings = () => {
             })
             .then(data =>{
                 
+                
                 setUserName(data.name);
                 setUserImg(data.avatar_url)
                 setDateJoined(data.created_at)
@@ -40,11 +43,18 @@ const Workings = () => {
                 setLocation(data.location)
                 setTwitterUsername(data.twitter_username)
                 setBlog(data.blog)
-                setId(data.id)
+                
                 setIsPending(false)
                 
                 setError(null)
-                // console.log(userName)s
+                console.log(data.company)
+                if(data.company === null){
+                    setCompany('not available')
+                }
+                else(setCompany(data.company))
+               
+                
+                
             })
             .catch(err =>{
                 setIsPending(null)
@@ -65,53 +75,61 @@ const Workings = () => {
                 <div className="box">
                     <i className="fa fa-search icon"></i>
                     <input type="search" onChange={e => setUserInput(e.target.value)}/>
-                    <button type="submit" className="" >Search</button>
+                    {/* <button type="submit" className="" >Search</button> */}
                 </div>
                 </form>
                 
-                
-                <div className='second-box'>
-                    <div className="first-row">
-                        <div><img src={userImg} alt='user pic'/></div>
+                <div className='' >
+                    <div className='second-box'>
+                        <div className="first-row">
+                            <div><img src={userImg} alt='user pic'/></div>
 
-                        <div className="user-details">
-                            <div className='first-right-column'>
-                                <div><h5 className='username'>{userName}</h5></div>
-                                <div className='date-joined'><h5>{dateJoined}</h5></div><br/>
+                            <div className="user-details">
+                                <div className='first-right-column'>
+                                    <div><h5 className='username'>{userName}</h5></div>
+                                    <div className='date-joined'><h5>{dateJoined}</h5></div><br/>
+                                </div>
+
+                                <div><h6 className='login-name'>{loginName}</h6></div>
+                                <div> <p>{bio}</p></div>
+                                
+                                <div className='number-div'>
+                                    <div className='numbers-header'>
+                                        <p>Repos</p>
+                                        <p>Followers</p>
+                                        <p>Following</p>
+                                    </div>
+                                    <div className='number'>
+                                        <p className='repo-number'>{repoNumber}</p>
+                                        <p className='followers-number'>{followersNumber}</p>
+                                        <p className='following-number'>{followingNumber}</p>
+                                    </div>
+                                </div>
+                                <div className='last-div'>
+                                    <p><i className="fa fa-map-marker"></i> {location}</p>
+                                    <p><i className="fab fa-twitter"></i> {twitterUsername}</p>
+                                    <p><i className="fas fa-blog"></i> {blog}</p>
+                                    <p><i className="fa fa-industry" aria-hidden="true"></i> {company}</p>
+                                    <p></p>
+                                </div>
+
+                                {/* <div className='first-last-flex'>
+                                    <p ><i className="fa fa-map-marker" aria-hidden="true"></i> &ensp; {location}</p>
+                                    <p className='left-flex'><i className="fab fa-twitter"></i> &ensp; {twitterUsername}</p>
+                                </div>
+                                <div className='last-flex'>
+                                    <p><i className="fas fa-blog"></i> &ensp; {blog}</p>
+                                    <p className='left-flex'><i className="fas fa-blog"></i> &ensp; {id}</p>
+                                </div> */}
+
+
                             </div>
-
-                            <div><h6 className='login-name'>{loginName}</h6></div>
-                            <div> {bio}</div>
                             
-                            <div className='number-div'>
-                                <div className='numbers-header'>
-                                    <p>Repos</p>
-                                    <p>Followers</p>
-                                    <p>Following</p>
-                                </div>
-                                <div className='number'>
-                                    <p className='repo-number'>{repoNumber}</p>
-                                    <p className='followers-number'>{followersNumber}</p>
-                                    <p className='following-number'>{followingNumber}</p>
-                                </div>
-                            </div>
-
-                            <div className='first-last-flex'>
-                                <p ><i className="fa fa-map-marker" aria-hidden="true"></i> &ensp; {location}</p>
-                                <p className='left-flex'><i className="fab fa-twitter"></i> &ensp; {twitterUsername}</p>
-                            </div>
-                            <div className='last-flex'>
-                                <p><i className="fas fa-blog"></i> &ensp; {blog}</p>
-                                <p className='left-flex'><i className="fas fa-blog"></i> &ensp; {id}</p>
-                            </div>
-
                         </div>
+
                         
                     </div>
-
-                    
                 </div>
-                
                 
             </div>
             
