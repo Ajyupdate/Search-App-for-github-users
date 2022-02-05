@@ -53,7 +53,7 @@ const Workings = () => {
                 }
                 else(setCompany(data.company))
                
-                
+    
                 
             })
             .catch(err =>{
