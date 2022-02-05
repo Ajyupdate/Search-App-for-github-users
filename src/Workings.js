@@ -64,8 +64,8 @@ const Workings = () => {
     }
     return ( 
         <div className="workings">
-            {error && <div>{error}</div>}
-            {isPending && <div>Loading...</div>}
+            {/* {error && <div>{error}</div>}
+            {isPending && <div>Loading...</div>} */}
             <div className="main-header">
                 <h4>devfinder</h4>
                 <h6>LIGHT <i className="fas fa-sun"></i></h6>
@@ -75,12 +75,12 @@ const Workings = () => {
                 <div className="box">
                     <i className="fa fa-search icon"></i>
                     <input type="search" onChange={e => setUserInput(e.target.value)}/>
-                    {/* <button type="submit" className="" >Search</button> */}
+                    <button type="submit" className="" >Search</button> 
                 </div>
                 </form>
                 
-                <div className='' >
-                    <div className='second-box'>
+                <div className='second-box' >
+                    <div className=''>
                         <div className="first-row">
                             <div><img src={userImg} alt='user pic'/></div>
 

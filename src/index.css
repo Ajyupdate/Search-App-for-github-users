@@ -11,10 +11,10 @@ body {
   color: white; 
 }
 
-.workings{
-  max-width: 50%;
+/* .workings{
+  width: 50%;
   margin: auto;
-  /* overflow: auto; */
+  overflow: auto; 
   padding: 0 2rem;
   margin-top: 100px;
 }
@@ -25,11 +25,11 @@ body {
 .main-header{
   display: flex;
   justify-content: space-between;
-  /* flex-direction: column;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2rem; */
+  padding: 2rem; 
 }
 .box{
   
@@ -127,11 +127,62 @@ button{
 
 
 }
-/* @media (max-width: 700px){
+@media (max-width: 700px){
   .first-row{
     display: block;
   }
   .last-div{
     display: block;
   }
-}  */
+}   */
+.workings{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+  width: 1200;
+  margin-top: 10%;
+}
+.main-header{
+  display: flex;
+  flex: 1;
+  justify-content: space-evenly;
+  text-align: center;
+}
+.container{
+    max-width: 1000px;
+    margin: auto;
+    overflow: auto;
+    padding: 0 2rem;
+}
+.box{
+  height: 30px;
+  background-color: rgb(30, 41, 70);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 25px; 
+} 
+.box > i {
+  font-size: 20px;
+  color: rgb(25, 66, 126);
+}
+.box > input{
+  flex: 1;
+  height: 40px;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  padding-left: 10px; 
+  background-color: rgb(30, 41, 70);
+}
+button{
+  outline: none;
+  color: white;
+  background-color: rgb(4, 127, 254);
+  border-radius: 10px;
+  padding: 5px;
+  border: none;
+}
