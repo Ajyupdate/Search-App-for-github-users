@@ -140,9 +140,9 @@ button{
   flex: 1;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
+  
   box-sizing: border-box;
-  width: 1200;
+  
   margin-top: 10%;
 }
 .main-header{
@@ -152,10 +152,10 @@ button{
   text-align: center;
 }
 .container{
-    max-width: 1000px;
+    max-width: 900px;
     margin: auto;
-    overflow: auto;
-    padding: 0 2rem;
+    overflow: auto; 
+    padding: 0 2rem;  
 }
 .box{
   height: 30px;
@@ -185,4 +185,62 @@ button{
   border-radius: 10px;
   padding: 5px;
   border: none;
+}
+.second-box{
+  padding: 1em;
+  margin-top: 30px;
+  border-radius: 20px;
+  background-color: rgb(30, 41, 70);
+}
+ 
+.first-row img{
+ 
+  width: 9em;
+  height: auto;
+  border-radius: 50%;
+  margin-top: 5px;
+  
+} 
+.picture-div{
+  text-align: center;
+} 
+.first-right-column{
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}   
+.login-name{
+  color: blue;
+}
+.number-div{
+  border-radius: 10px;
+  padding: 5px;
+  background-color: rgb(20, 28, 47);
+  margin-top: 2em;
+}
+.numbers-header{
+  display: flex;
+  justify-content: space-between;
+}
+.number{
+  display:flex;
+  justify-content: space-between;
+}
+.followers-number, .following-number {
+  margin-right: 10px;
+}
+.last-div{
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+}
+.first-last-div{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.twitter {
+  float: right;
+}
+.date-joined{
+  float: right;
 }

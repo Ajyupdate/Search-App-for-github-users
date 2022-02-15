@@ -1,17 +1,17 @@
 import { useState } from 'react';
-
+import pic3 from './img/pic3.jpeg';
 const Workings = () => {
-    const [isPending, setIsPending] = useState(true)
-    const [error, setError] = useState(null)
+    // const [isPending, setIsPending] = useState(true)
+    // const [error, setError] = useState(null)
     const [userInput, setUserInput] = useState('');
-    const [userImg, setUserImg] = useState('')
+    const [userImg, setUserImg] = useState(pic3)
     const [userName, setUserName] = useState('UserName');
     const [dateJoined, setDateJoined] = useState('dateJoined');
     const [loginName, setLoginName] = useState('loginName');
     const [bio, setBio] = useState('setBio');
-    const [repoNumber, setrepoNumber] = useState('0');
-    const [followersNumber, setFollowersNumber] = useState('0');
-    const [followingNumber, setFollwingNumber] = useState(0);
+    const [repoNumber, setrepoNumber] = useState('150000');
+    const [followersNumber, setFollowersNumber] = useState('150000');
+    const [followingNumber, setFollwingNumber] = useState('150000');
     const [location, setLocation] = useState('location');
     const [twitterUsername, setTwitterUsername] = useState("Twitter")
     const [blog, setBlog] = useState('blog');
@@ -32,22 +32,86 @@ const Workings = () => {
             .then(data =>{
                 
                 
-                setUserName(data.name);
-                setUserImg(data.avatar_url)
-                setDateJoined(data.created_at)
-                setLoginName(data.login)
-                setBio(data.bio)
-                setrepoNumber(data.public_repos)
-                setFollowersNumber(data.followers)
-                setFollwingNumber(data.following)
-                setLocation(data.location)
-                setTwitterUsername(data.twitter_username)
-                setBlog(data.blog)
+                // setUserName(data.name);
+                if(data.name == null){
+                    setUserName('Username Not Available')
+               }
+               else(setUserName(data.name))
+
+
+
+
+                // setUserImg(data.avatar_url)
+                if(data.avatar_url == null){
+                    setUserImg('Image not available')
+               }
+               else(setUserImg(data.avatar_url))
+
+                // setDateJoined(data.created_at)
+                if(data.created_at == null){
+                    setDateJoined('Not Available')
+               }
+               else(setDateJoined(data.created_at))
+
+
+                // setLoginName(data.login)
+                if(data.login == null){
+                    setLoginName('This User login is not available')
+               }
+               else(setLoginName(data.login))
+
+
+                // setBio(data.bio)
+                if(data.bio == null){
+                    setBio('This User has no bio')
+               }
+               else( setBio(data.bio))
+
+
+                // setrepoNumber(data.public_repos)
+                if(data.public_repos == null){
+                    setrepoNumber('Not available')
+               }
+               else( setrepoNumber(data.public_repos))
+
+
+                // setFollowersNumber(data.followers)
+                if(data.followers == null){
+                     setFollowersNumber('Not available')
+                }
+                else( setFollowersNumber(data.followers))
+
+
+
+                // setFollwingNumber(data.following)
+                if(data.following == null){
+                    setFollwingNumber('Not available')
+                }
+                else(setFollwingNumber(data.following))
+
+
+                // setLocation(data.location)
+                if(data.location == null){
+                    setLocation('Location not available')
+                }
+                else(setLocation(data.location))
+
+
+                // setTwitterUsername(data.twitter_username)
+                if(data.twitter_username == null){
+                    setTwitterUsername('no twitter handdle')
+                }
+                else(setTwitterUsername(data.twitter_username))
+                // setBlog(data.blog)
+                if(data.blog === null){
+                    setBlog(`this user doesnt't have a blog`)
+                }
+                else(setBlog(data.blog))
                 
-                setIsPending(false)
+                // setIsPending(false)
+                // setError(null)
+
                 
-                setError(null)
-                console.log(data.company)
                 if(data.company === null){
                     setCompany('not available')
                 }
@@ -56,11 +120,11 @@ const Workings = () => {
     
                 
             })
-            .catch(err =>{
-                setIsPending(null)
-                setError(err.message)
+            // .catch(err =>{
+            //     setIsPending(null)
+            //     setError(err.message)
                 
-            })
+            // })
     }
     return ( 
         <div className="workings">
@@ -72,32 +136,32 @@ const Workings = () => {
             </div>
             <div className="container">
                 <form onSubmit={handleSubmit}>
-                <div className="box">
-                    <i className="fa fa-search icon"></i>
-                    <input type="search" onChange={e => setUserInput(e.target.value)}/>
-                    <button type="submit" className="" >Search</button> 
-                </div>
+                    <div className="box">
+                        <i className="fa fa-search icon"></i>
+                        <input type="search" onChange={e => setUserInput(e.target.value)}/>
+                        <button type="submit" className="" >Search</button> 
+                    </div>
                 </form>
                 
                 <div className='second-box' >
                     <div className=''>
-                        <div className="first-row">
-                            <div><img src={userImg} alt='user pic'/></div>
+                        <div className="row first-row">
+                            <div className='col-md-3 picture-div'><img src={userImg} alt='user pic'/></div>
 
-                            <div className="user-details">
+                            <div className="col-md-9 user-details">
                                 <div className='first-right-column'>
                                     <div><h5 className='username'>{userName}</h5></div>
                                     <div className='date-joined'><h5>{dateJoined}</h5></div><br/>
                                 </div>
 
-                                <div><h6 className='login-name'>{loginName}</h6></div>
+                                <div className='login-name'><h6>{loginName}</h6></div>
                                 <div> <p>{bio}</p></div>
                                 
                                 <div className='number-div'>
                                     <div className='numbers-header'>
                                         <p>Repos</p>
-                                        <p>Followers</p>
-                                        <p>Following</p>
+                                        <p >Followers</p>
+                                        <p >Following</p>
                                     </div>
                                     <div className='number'>
                                         <p className='repo-number'>{repoNumber}</p>
@@ -106,22 +170,19 @@ const Workings = () => {
                                     </div>
                                 </div>
                                 <div className='last-div'>
-                                    <p><i className="fa fa-map-marker"></i> {location}</p>
-                                    <p><i className="fab fa-twitter"></i> {twitterUsername}</p>
-                                    <p><i className="fas fa-blog"></i> {blog}</p>
-                                    <p><i className="fa fa-industry" aria-hidden="true"></i> {company}</p>
-                                    <p></p>
-                                </div>
+                                    <ul className='list-inline'>
+                                        <li className='list-inline-item'><i className="fa fa-map-marker"></i> {location}</li>
+                                        <li className='list-inline-item twitter'><i className="fab fa-twitter"></i> {twitterUsername}</li>
+                                    </ul>
+                                    <ul className='list-inline'>
+                                        <li className='list-inline-item'><i className="fas fa-blog"></i> {blog}</li>
+                                        <li className='list-inline-item twitter'><i className="fa fa-industry"></i> {company}</li>
+                                    </ul>
+                                    
+                                    
 
-                                {/* <div className='first-last-flex'>
-                                    <p ><i className="fa fa-map-marker" aria-hidden="true"></i> &ensp; {location}</p>
-                                    <p className='left-flex'><i className="fab fa-twitter"></i> &ensp; {twitterUsername}</p>
+                                    
                                 </div>
-                                <div className='last-flex'>
-                                    <p><i className="fas fa-blog"></i> &ensp; {blog}</p>
-                                    <p className='left-flex'><i className="fas fa-blog"></i> &ensp; {id}</p>
-                                </div> */}
-
 
                             </div>
                             
