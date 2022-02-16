@@ -14,8 +14,9 @@ const Workings = () => {
     const [followingNumber, setFollwingNumber] = useState('150000');
     const [location, setLocation] = useState('location');
     const [twitterUsername, setTwitterUsername] = useState("Twitter")
-    const [blog, setBlog] = useState('blog');
+    const [blog, setBlog] = useState('');
     const [company, setCompany] = useState('null')
+    const [data, setData] = useState('')
 
     
     const handleSubmit = (e) =>{
@@ -30,53 +31,67 @@ const Workings = () => {
                 return res.json()
             })
             .then(data =>{
-                
-                
-                // setUserName(data.name);
+                if(data){
+                    console.log('data is here')
+                    setData(data)
+                }
+
                 if(data.name == null){
                     setUserName('Username Not Available')
                }
                else(setUserName(data.name))
 
 
+                
+                
+                // setUserName(data.name);
+                // if(data.name){
+                //     setUserName('Not Available')
+                //  }
+                // else(setUserName(data.name))
 
+                
+                // (setUserImg(data.avatar_url))
 
-                // setUserImg(data.avatar_url)
                 if(data.avatar_url == null){
                     setUserImg('Image not available')
                }
                else(setUserImg(data.avatar_url))
 
+                
+                   
+               
+
                 // setDateJoined(data.created_at)
-                if(data.created_at == null){
+                if(data.created_at === null){
                     setDateJoined('Not Available')
                }
                else(setDateJoined(data.created_at))
 
 
                 // setLoginName(data.login)
-                if(data.login == null){
+                if(data.login === null){
                     setLoginName('This User login is not available')
                }
                else(setLoginName(data.login))
 
 
                 // setBio(data.bio)
-                if(data.bio == null){
+                if(data.bio === null){
                     setBio('This User has no bio')
                }
                else( setBio(data.bio))
 
 
                 // setrepoNumber(data.public_repos)
-                if(data.public_repos == null){
+                if(data.public_repos === null){
                     setrepoNumber('Not available')
                }
                else( setrepoNumber(data.public_repos))
 
 
                 // setFollowersNumber(data.followers)
-                if(data.followers == null){
+                if(data.followers === null){
                      setFollowersNumber('Not available')
                 }
                 else( setFollowersNumber(data.followers))
@@ -84,29 +99,30 @@ const Workings = () => {
 
 
                 // setFollwingNumber(data.following)
-                if(data.following == null){
+                if(data.following === null){
                     setFollwingNumber('Not available')
                 }
                 else(setFollwingNumber(data.following))
 
 
                 // setLocation(data.location)
-                if(data.location == null){
+                if(data.location === null){
                     setLocation('Location not available')
                 }
                 else(setLocation(data.location))
 
 
                 // setTwitterUsername(data.twitter_username)
-                if(data.twitter_username == null){
+                if(data.twitter_username === null){
                     setTwitterUsername('no twitter handdle')
                 }
                 else(setTwitterUsername(data.twitter_username))
                 // setBlog(data.blog)
-                if(data.blog === null){
-                    setBlog(`this user doesnt't have a blog`)
+                if(data.blog === ""){
+                    setBlog('No blog yet')
                 }
                 else(setBlog(data.blog))
+            
                 
                 // setIsPending(false)
                 // setError(null)
@@ -138,12 +154,12 @@ const Workings = () => {
                 <form onSubmit={handleSubmit}>
                     <div className="box">
                         <i className="fa fa-search icon"></i>
-                        <input type="search" onChange={e => setUserInput(e.target.value)}/>
+                        <input type="search" placeholder='Enter your github login handle' onChange={e => setUserInput(e.target.value)}/>
                         <button type="submit" className="" >Search</button> 
                     </div>
                 </form>
                 
-                <div className='second-box' >
+                {data && <div className='second-box' >
                     <div className=''>
                         <div className="row first-row">
                             <div className='col-md-3 picture-div'><img src={userImg} alt='user pic'/></div>
@@ -190,7 +206,7 @@ const Workings = () => {
 
                         
                     </div>
-                </div>
+                </div>}
                 
             </div>
             
