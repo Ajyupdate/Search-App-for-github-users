@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import pic3 from './img/pic3.jpeg';
 const Workings = () => {
-    // const [isPending, setIsPending] = useState(true)
+    const [isPending, setIsPending] = useState(false)
     // const [error, setError] = useState(null)
     const [userInput, setUserInput] = useState('');
     const [userImg, setUserImg] = useState(pic3)
@@ -24,6 +24,7 @@ const Workings = () => {
         e.preventDefault();
           fetch(`https://api.github.com/users/${userInput}`)
             .then(res=>{
+                setIsPending(true)
                 console.log(res)
                 if(!res.ok){
                     throw Error("Could not fetch resource")
@@ -31,6 +32,7 @@ const Workings = () => {
                 return res.json()
             })
             .then(data =>{
+                setIsPending(false)
                 if(data){
                     console.log('data is here')
                     setData(data)
@@ -136,16 +138,12 @@ const Workings = () => {
     
                 
             })
-            // .catch(err =>{
-            //     setIsPending(null)
-            //     setError(err.message)
-                
-            // })
+            
     }
     return ( 
         <div className="workings">
-            {/* {error && <div>{error}</div>}
-            {isPending && <div>Loading...</div>} */}
+            {/* {error && <div>{error}</div>} */}
+            {isPending && <div>Loading...</div>} 
             <div className="main-header">
                 <h4>devfinder</h4>
                 <h6>LIGHT <i className="fas fa-sun"></i></h6>
@@ -154,7 +152,7 @@ const Workings = () => {
                 <form onSubmit={handleSubmit}>
                     <div className="box">
                         <i className="fa fa-search icon"></i>
-                        <input type="search" placeholder='Enter your github login handle' onChange={e => setUserInput(e.target.value)}/>
+                        <input className='text-white' type="search" placeholder='Enter your github login handle' onChange={e => setUserInput(e.target.value)}/>
                         <button type="submit" className="" >Search</button> 
                     </div>
                 </form>
