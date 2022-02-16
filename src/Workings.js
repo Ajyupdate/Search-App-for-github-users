@@ -2,7 +2,7 @@ import { useState } from 'react';
 import pic3 from './img/pic3.jpeg';
 const Workings = () => {
     const [isPending, setIsPending] = useState(false)
-    // const [error, setError] = useState(null)
+    const [error, setError] = useState(null)
     const [userInput, setUserInput] = useState('');
     const [userImg, setUserImg] = useState(pic3)
     const [userName, setUserName] = useState('UserName');
@@ -25,14 +25,16 @@ const Workings = () => {
           fetch(`https://api.github.com/users/${userInput}`)
             .then(res=>{
                 setIsPending(true)
-                console.log(res)
+                
                 if(!res.ok){
-                    throw Error("Could not fetch resource")
+                    throw Error("Could not fetch resource(it either the user doesn't exist or your internet connection is bad")
                 }
                 return res.json()
             })
+
             .then(data =>{
                 setIsPending(false)
+                setError(null)
                 if(data){
                     console.log('data is here')
                     setData(data)
@@ -135,14 +137,16 @@ const Workings = () => {
                 }
                 else(setCompany(data.company))
                
-    
-                
+            })
+            .catch(err =>{
+                setIsPending(false)
+                setError(err.message)
             })
             
     }
     return ( 
         <div className="workings">
-            {/* {error && <div>{error}</div>} */}
+            {error && <div>{error}</div>} 
             {isPending && <div>Loading...</div>} 
             <div className="main-header">
                 <h4>devfinder</h4>
