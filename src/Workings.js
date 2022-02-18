@@ -27,7 +27,7 @@ const Workings = () => {
                 setIsPending(true)
                 
                 if(!res.ok){
-                    throw Error("Could not fetch resource(it either the user doesn't exist or your internet connection is bad")
+                    throw Error("Could not fetch resource(it either the user doesn't exist or your internet connection is bad)")
                 }
                 return res.json()
             })

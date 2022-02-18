@@ -22,12 +22,14 @@ body {
   
   margin-top: 10%;
 }
+
 .main-header{
   display: flex;
   flex: 1;
   justify-content: space-evenly;
   text-align: center;
 }
+
 .container{
     max-width: 900px;
     margin: auto;
@@ -61,7 +63,7 @@ button{
   color: white;
   background-color: rgb(4, 127, 254);
   border-radius: 10px;
-  padding: 5px;
+  padding: 3px;
   border: none;
 }
 .second-box{
