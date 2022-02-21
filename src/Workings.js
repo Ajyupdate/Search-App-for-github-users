@@ -9,7 +9,7 @@ const Workings = () => {
 
     
     const handleSubmit = (e) =>{
-       
+    //    setUserInput('')
         e.preventDefault();
           fetch(`https://api.github.com/users/${userInput}`)
             .then(res=>{
@@ -25,7 +25,6 @@ const Workings = () => {
                 setIsPending(false)
                 setError(null)
                 if(data){
-                    console.log('data is here')
                     setData(data)
                 }
 
@@ -38,19 +37,20 @@ const Workings = () => {
     }
     return ( 
         <div className="workings">
-            {error && <div>{error}</div>} 
-            {isPending && <div>Loading...</div>} 
-
+            
             <div className="main-header">
                 <h4>devfinder</h4>
                 <h6>LIGHT <i className="fas fa-sun"></i></h6>
             </div>
+            {error && <div>{error}</div>} 
+            {isPending && <div>Loading...</div>} 
+
             <div className='container'>
                 <form onSubmit={handleSubmit}>
                     <div className="box">
                         <i className="fa fa-search icon"></i>
-                        <input className='text-white' type="search" placeholder='Enter your github login handle' onChange={e => setUserInput(e.target.value)}/>
-                        <button type="submit" className="" >Search</button> 
+                        <input className='text-white' type="search" value={userInput} placeholder='Enter your github login handle' onChange={e => setUserInput(e.target.value)}/>
+                        <button type="submit" className="" >Search</button>  
                     </div>
                 </form>
                 <Input data={data} handleSubmit={handleSubmit}/>
