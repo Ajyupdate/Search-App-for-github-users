@@ -45,6 +45,7 @@ body {
   display: flex;
   align-items: center;
   padding: 25px; 
+  overflow: hidden;
 } 
 .box > i {
   font-size: 20px;
@@ -70,6 +71,7 @@ button{
   border: none;
   margin-right: 2em; 
 }
+
 .second-box{
   padding: 1em;
   margin-top: 30px;
