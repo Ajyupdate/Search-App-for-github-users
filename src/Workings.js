@@ -7,7 +7,11 @@ const Workings = () => {
     const [userInput, setUserInput] = useState('');
     const [data, setData] = useState('')
 
-    
+    const handlestyle = () =>{
+        document.querySelector('body').style.backgroundColor = 'white';
+        document.querySelector('body').style.color = 'black';
+        // document.querySelector('.Workings').style.backgroundColor = 'white';
+    }
     const handleSubmit = (e) =>{
     //    setUserInput('')
         e.preventDefault();
@@ -40,17 +44,18 @@ const Workings = () => {
             
             <div className="main-header">
                 <h4>devfinder</h4>
-                <h6>LIGHT <i className="fas fa-sun"></i></h6>
+                <h6 onClick={handlestyle}>LIGHT <i className="fas fa-sun"></i></h6>
             </div>
+           
+            <div className='container'>
             {error && <div>{error}</div>} 
             {isPending && <div>Loading...</div>} 
 
-            <div className='container'>
                 <form onSubmit={handleSubmit}>
                     <div className="box">
                         <i className="fa fa-search icon"></i>
                         <input className='text-white' type="search" value={userInput} placeholder='Enter your github login name' onChange={e => setUserInput(e.target.value)}/>
-                        <button type="submit" className="" >Search</button>   
+                        {/* <button type="submit" className="" >Search</button>    */}
                     </div>
                 </form>
                 <Input data={data} handleSubmit={handleSubmit}/>

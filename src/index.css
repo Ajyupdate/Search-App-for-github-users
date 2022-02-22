@@ -58,7 +58,7 @@ body {
   border: none;
   outline: none;
   font-size: 18px;
-  /* padding-left: 10px;  */
+  padding-left: 7px;  
   background-color: rgb(30, 41, 70);
   
 }
@@ -72,11 +72,7 @@ button{
   border: none;
   margin-right: 2em; 
 }
-@media (max-width: 700px){
-  .button{
-      display: block;
-  }
-} 
+
 .second-box{
   padding: 1em;
   margin-top: 30px;
