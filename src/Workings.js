@@ -7,17 +7,18 @@ const Workings = () => {
     const [userInput, setUserInput] = useState('');
     const [data, setData] = useState('')
 
-    const handlestyle = () =>{
-        document.querySelector('body').style.backgroundColor = 'white';
-        document.querySelector('body').style.color = 'black';
-        // document.querySelector('.Workings').style.backgroundColor = 'white';
-    }
+    // const handlestyle = () =>{
+    //     document.querySelector('body').style.backgroundColor = 'white';
+    //     document.querySelector('body').style.color = 'black';
+    //     // document.querySelector('.Workings').style.backgroundColor = 'white';
+    // }
     const handleSubmit = (e) =>{
+        setIsPending(true)
     //    setUserInput('')
         e.preventDefault();
           fetch(`https://api.github.com/users/${userInput}`)
             .then(res=>{
-                setIsPending(true)
+                
                 
                 if(!res.ok){
                     throw Error("Could not get user(it either the user doesn't exist or your internet connection is bad)")
@@ -44,7 +45,7 @@ const Workings = () => {
             
             <div className="main-header">
                 <h4>devfinder</h4>
-                <h6 onClick={handlestyle}>LIGHT <i className="fas fa-sun"></i></h6>
+                <h6 >LIGHT <i className="fas fa-sun"></i></h6>
             </div>
            
             <div className='container'>
