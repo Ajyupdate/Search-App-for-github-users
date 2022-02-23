@@ -44,7 +44,7 @@ const Workings = () => {
         <div className="workings">
             
             <div className="main-header">
-                <h4>devfinder</h4>
+                <h6>devfinder</h6>
                 <h6 >LIGHT <i className="fas fa-sun"></i></h6>
             </div>
            
