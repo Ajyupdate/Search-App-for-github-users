@@ -50,7 +50,7 @@ const Workings = () => {
            
             <div className='container'>
             {error && <div>{error}</div>} 
-            {isPending && <div>Loading...</div>} 
+            {isPending && <div>Loading.... (please wait a second)</div>} 
 
                 <form onSubmit={handleSubmit}>
                     <div className="box">
