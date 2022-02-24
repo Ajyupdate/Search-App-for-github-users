@@ -14,7 +14,7 @@ const Workings = () => {
     // }
     const handleSubmit = (e) =>{
         setIsPending(true)
-    //    setUserInput('')
+        setUserInput('')
         e.preventDefault();
           fetch(`https://api.github.com/users/${userInput}`)
             .then(res=>{
@@ -45,7 +45,7 @@ const Workings = () => {
             
             <div className="main-header">
                 <h6>devfinder</h6>
-                <h6 >LIGHT <i className="fas fa-sun"></i></h6>
+                <h6 >LOVE <i class="fas fa-heart"></i></h6>
             </div>
            
             <div className='container'>
