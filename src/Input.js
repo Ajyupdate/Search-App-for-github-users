@@ -1,5 +1,8 @@
 const Input = ({data, handleSubmit}) => {
+    const date = new Date(data.created_at)
+    const dateCreated = date.toDateString()
     
+
     return ( 
         <div>
             {/* <div className="main-header">
@@ -24,7 +27,7 @@ const Input = ({data, handleSubmit}) => {
                                 <div className='first-right-column'>
                                     <div><h5 className='username'>{data.name === null ? 'username not available' : data.name}</h5></div>
                             
-                                    <div className='date-joined'><h5>{data.created_at === null ? 'Not available' : data.created_at}</h5></div><br/>
+                                    <div className='date-joined'><h5>{data.created_at === null ? 'Not available' : dateCreated}</h5></div><br/>
                                 </div>
                                 
 

@@ -45,7 +45,7 @@ const Workings = () => {
             
             <div className="main-header">
                 <h6>devfinder</h6>
-                <h6 >LOVE <i class="fas fa-heart"></i></h6>
+                <h6 >LOVE <i className="fas fa-heart"></i></h6>
             </div>
            
             <div className='container'>
