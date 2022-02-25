@@ -50,8 +50,7 @@ const Input = ({data, handleSubmit}) => {
                                     <ul className='list-inline'>
                                         <li className='list-inline-item'><i className="fa fa-map-marker"></i> {data.location === null ? 'Location not available' : data.location}</li>
                                         <li className='list-inline-item twitter'><i className="fab fa-twitter"></i> {data.twitter_username === null ? 'No twitter handle' : data.twitter_username}</li>
-                                    </ul>
-                                    <ul className='list-inline'>
+                                   
                                         <li className='list-inline-item'><i className="fas fa-blog"></i> {data.blog === "" ? 'No blog yet' : data.blog}</li>
                                         <li className='list-inline-item twitter'><i className="fa fa-industry"></i> {data.company === null ? 'Not available' : data.company}</li>
                                     </ul>
