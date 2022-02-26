@@ -21,7 +21,7 @@ const Input = ({data, handleSubmit}) => {
                 {data && <div className='second-box' >
                     <div className=''>
                         <div className="row first-row">
-                            <div className='col-md-3 picture-div'><img src={data.avatar_url == null ? 'username not available' : data.avatar_url} alt='user pic'/></div> 
+                            <div className='col-md-3 picture-div'><img src={data.avatar_url == null ? 'image not available' : data.avatar_url} alt='user pic'/></div> 
 
                             <div className="col-md-9 user-details">
                                 <div className='first-right-column'>
