@@ -56,7 +56,7 @@ const Workings = () => {
                     <div className="box">
                         <i className="fa fa-search icon"></i>
                         <input className='text-white' type="search" value={userInput} placeholder='Enter Github Username...' onChange={e => setUserInput(e.target.value)}/>
-                        {/* <button type="submit" className="" >Search</button>    */}
+                        <button type="submit" className="" >Search</button>    
                     </div>
                 </form>
                 <Input data={data} handleSubmit={handleSubmit}/>
